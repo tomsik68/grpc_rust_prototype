@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+import "messages.proto";
+
+service UserService {
+  rpc GetUser (UserRequest) returns (User);
+  rpc GetUsers(Empty) returns (UsersResponse);
+}

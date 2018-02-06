@@ -1,0 +1,8 @@
+[package]
+name = "grpc_client"
+version = "0.1.0"
+authors = ["Tomas Jasek <tomsik68@gmail.com>"]
+
+[dependencies]
+grpc_common = { path = "../grpc_common" }
+grpc        = "0.2"

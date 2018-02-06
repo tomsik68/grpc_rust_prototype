@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message Empty {}
+
+message User {
+  string user_id = 1;
+  string username = 2;
+}
+
+message UserRequest {
+  string user_id = 1;
+}
+
+message UsersResponse {
+  repeated User users = 1;
+}

@@ -1,0 +1,2 @@
+[workspace]
+members = ["grpc_client", "grpc_common", "grpc_server"]

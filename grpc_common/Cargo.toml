@@ -1,0 +1,12 @@
+[package]
+name = "grpc_common"
+version = "0.1.0"
+authors = ["Tomas Jasek <tomsik68@gmail.com>"]
+
+[dependencies]
+grpc     = "0.2"
+protobuf = "1.*"
+tls-api  = "0.1.*"
+
+[build-dependencies]
+protoc-rust-grpc = "0.2"
