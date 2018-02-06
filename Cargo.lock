@@ -108,6 +108,7 @@ dependencies = [
 name = "grpc_server"
 version = "0.1.0"
 dependencies = [
+ "bytes 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "grpc 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "grpc_common 0.1.0",
  "protobuf 1.4.3 (registry+https://github.com/rust-lang/crates.io-index)",

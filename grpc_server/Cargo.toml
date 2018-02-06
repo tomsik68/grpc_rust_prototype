@@ -7,3 +7,4 @@ authors = ["Tomas Jasek <tomsik68@gmail.com>"]
 grpc_common = { path = "../grpc_common" }
 grpc        = "0.2"
 protobuf    = "1.*"
+bytes       = "0.4"

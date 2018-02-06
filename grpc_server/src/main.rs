@@ -1,8 +1,13 @@
 extern crate grpc;
 extern crate protobuf;
 extern crate grpc_common;
+extern crate bytes;
 
+use bytes::Bytes;
 use std::thread;
+use grpc::Metadata;
+use grpc::MetadataKey;
+use std::time::Instant;
 use protobuf::RepeatedField;
 use grpc_common::services_grpc::*;
 use grpc_common::messages::*;
@@ -15,6 +20,9 @@ impl UserService for UserServiceImpl {
     }
 
     fn get_users(&self, _o: ::grpc::RequestOptions, _p: Empty) -> ::grpc::SingleResponse<UsersResponse> {
+        let mut meta = Metadata::new();
+        let time = Instant::now().elapsed().as_secs().to_string();
+        meta.add(MetadataKey::from("recv_time"), Bytes::from(time));
         let mut resp = UsersResponse::new();
         let mut users = Vec::new();
         for i in 0..10 {
@@ -24,7 +32,7 @@ impl UserService for UserServiceImpl {
             users.push(u);
         }
         resp.set_users(RepeatedField::from_vec(users));
-        ::grpc::SingleResponse::completed(resp)
+        ::grpc::SingleResponse::completed_with_metadata(meta, resp)
     }
 }
 
